@@ -1,0 +1,50 @@
+*{
+    transition: all 1s;
+}
+
+body
+{
+    padding: 10px;
+    background-color: lightseagreen;
+}
+
+section
+{
+    display: flex;
+    flex-direction: row;
+}
+
+img
+{
+    width:100px;
+}
+li img
+{
+    margin-bottom: 30px;
+}
+
+ul button
+{
+    margin-bottom: 30px;
+}
+
+#carrito
+{
+    background-color:rgb(49, 164, 164);
+}
+
+#items,#carrito 
+{
+    width: 50vw;
+}
+
+.miniatura
+{
+    width:60px;
+}
+
+
+
+
+
+

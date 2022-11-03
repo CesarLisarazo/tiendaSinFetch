@@ -32,7 +32,7 @@ let items = [
 
 
 let cart = [] 
-let list = document.getElementById('items')
+let list = document.getElementById('lista')
 let ClearCart = document.getElementById('ClearCart')
 
 

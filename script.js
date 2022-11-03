@@ -29,34 +29,24 @@ let items = [
     },
   ]
 
- 
-
 
 let cart = [] 
-
-
-
 let list = document.getElementById('items')
 let ClearCart = document.getElementById('ClearCart')
-
 
 
 document.addEventListener('DOMContentLoaded',() =>
 {
   cart=JSON.parse(localStorage.getItem('carrito'))  
   renderCart()
-
 })
 
 
 ClearCart.addEventListener('click', ()=> { 
 cart.length=[]
-
 renderCart()
 saveCart()
-
-}
-)
+})
 
 
 items.forEach((item,i)=>{
@@ -71,24 +61,21 @@ items.forEach((item,i)=>{
 
 
 function renderCart() 
-{
-    
-    let carritoItems = document.querySelector('#carrito')
-    let total = 0; 
-    carritoItems.innerHTML = ''
-    cart.forEach((item)=>
-    {
-        total+= item.price * item.quantity
-        carritoItems.innerHTML += `<li>
-            <div>${item.name}</div>
-            <div>Cantidad: ${item.quantity}</div>
-            <image src="${item.image}" />
-        </li>`
-    })
-    document.querySelector('#total').innerHTML = '$' +total
-
+{ 
+  let carritoItems = document.getElementById('carrito')
+  let total = 0; 
+  carritoItems.innerHTML = ''
+  cart.forEach((item)=>
+  {
+    total+= item.price * item.quantity
+    carritoItems.innerHTML += `<li>
+    <div>${item.name}</div>
+    <div>Cantidad: ${item.quantity}</div>
+    <image src="${item.image}" />
+    </li>`
+  })
+  document.getElementById('total').innerHTML = '$' +total
 }
-
 
 
 function inputChange(i, name, price,image) {
@@ -96,41 +83,29 @@ function inputChange(i, name, price,image) {
     let input = listItem.querySelector('input')
     let button = listItem.querySelector('button')
 
- if(input.value <1)
+    if(input.value <1)
  {
   input.value =1
   swal(" ", "Debes agregar al menos 1", "error");
-
  }
 
 else
 {
 
-    button.onclick = function(){
-        cart.push({
-            quantity: input.value,
-            name: name,
-            price: price,
-            image: image
+  button.onclick = function(){
+  cart.push({
+  quantity: input.value,
+  name: name,
+  price: price,
+  image: image
+})        
+  renderCart()
+  saveCart()
+}}}
 
-
-        }
-        
-        
-        )
-        
-    
-      
-        renderCart()
-        saveCart()
-         
-    }
-
-}}
 
 function saveCart()
 {
   localStorage.setItem(`carrito`, JSON.stringify(cart))
-
 } 
 

@@ -1,4 +1,7 @@
 
+
+
+
 let items = [
   {
     id:1,
@@ -29,6 +32,11 @@ let items = [
 ]
 
 
+document.addEventListener('DOMContentLoaded',() =>
+{
+cart=JSON.parse(localStorage.getItem('carrito'))  
+renderCart()
+})
 
 
 let cart = [] 
@@ -36,11 +44,6 @@ let list = document.getElementById('lista')
 let ClearCart = document.getElementById('ClearCart')
 
 
-document.addEventListener('DOMContentLoaded',() =>
-{
-cart=JSON.parse(localStorage.getItem('carrito'))  
-renderCart()
-})
 
 
 ClearCart.addEventListener('click', ()=> { 
@@ -111,13 +114,3 @@ localStorage.setItem(`carrito`, JSON.stringify(cart))
 } 
 
 
-//aqui uso .fetch para ver si lo estoy escribiendo correctamente con resultados positivos 
-fetch('https://jsonplaceholder.typicode.com/posts')
-.then ((response) => response.json())
-.then ((info=>console.log( info)))
-
-
-//aqui trato de cargar el archivo .jason local pero la consola dice que el permiso está bloqueado politicas CORS 
-fetch('items.json')
-.then ((response) => response.json())
-.then ((data=>console.log(data)))

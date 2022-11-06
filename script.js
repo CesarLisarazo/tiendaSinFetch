@@ -14,12 +14,17 @@ fetch('items.json')
 }) ))
 
 
-cart =  []
+cart = []
+
+document.addEventListener('DOMContentLoaded', () => {
+cart = JSON.parse(localStorage.getItem('cartShop')) || []
+renderCart()
+})
+
 
 let list = document.getElementById('lista')
 let ClearCart = document.getElementById('ClearCart')
 
-console.log(JSON.parse(localStorage.getItem('cartShop')))
 
 
 ClearCart.addEventListener('click', ()=> { 
@@ -81,4 +86,3 @@ else
 
 
 }}}
-

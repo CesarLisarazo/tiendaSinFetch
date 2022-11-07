@@ -1,11 +1,9 @@
-*{
-    transition: all 1s;
-}
+
 
 body
 {
     padding: 10px;
-    background-color: lightseagreen;
+    background-color: rgb(113, 143, 242);
 }
 
 section
@@ -30,7 +28,7 @@ ul button
 
 #carrito
 {
-    background-color:rgb(49, 164, 164);
+    background-color:rgb(85, 117, 247);
 }
 
 #lista,#carrito 

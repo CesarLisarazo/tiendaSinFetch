@@ -36,6 +36,10 @@ ul button
     width: 50vw;
 }
 
+#eliminarProducto
+{
+    display:flex;
+}
 .miniatura
 {
     width:60px;

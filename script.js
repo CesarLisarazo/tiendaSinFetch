@@ -11,12 +11,9 @@ fetch('items.json')
       <div>Precio: $${items.price}</div>
       <image src="${items.image}" />
       <input type="number" placeholder="Cantidad" onchange='inputChange(${i}, "${items.name}", "${items.price}", "${items.image}", "${items.id}")'/>
-      <button>Agregar al carrito</button>
-  
+      <button>Agregar al carrito</button> 
   </li>`
-}
-
-)))
+})))
 
 
 //Se declaran variables 
@@ -33,6 +30,8 @@ cart = JSON.parse(localStorage.getItem('cartShop')) || []
 renderCart()
 })
 
+
+
 //boton de finalizar compra
 finalizarCompra.addEventListener('click', ()=> 
 { 
@@ -45,13 +44,10 @@ else{
 }})
 
 
+
 //botón para limpiar el carrito
 ClearCart.addEventListener('click', ()=> { 
-if (cart.length== 0)
-{
-swal(" ", "El carrito ya está vacio", "success");
-}
-else
+if (cart.length!== 0)
   {
   swal({
   title: "¿Estás seguro?",
@@ -76,23 +72,25 @@ if (willDelete) {
 }})
  
 
+
 //Aquí se renderiza el carrito
 function renderCart() 
 { 
-  let cartItems = document.getElementById('carrito')
-  let total = 0; 
-  cartItems.innerHTML = ''
-  cart.forEach((item)=>
-  {
-    total+= item.price * item.quantity
-    cartItems.innerHTML += `<li>
-    <div>${item.name}</div>
-    <div>Cantidad: ${item.quantity}</div>
-    <image src="${item.image}" />
-    <button onclick ='eliminarProducto(${item.id})'> Eliminar</button>
-     </li>`
-  })
-  document.getElementById('total').innerHTML = '$' +total
+    let cartItems = document.getElementById('carrito')
+    let total = 0; 
+    cartItems.innerHTML = ''
+    cart.forEach((item)=>
+     {
+     total+= item.price * item.quantity
+      cartItems.innerHTML += `<li>
+       <div>${item.name}</div>
+       <div>Cantidad: ${item.quantity}</div>
+      <image src="${item.image}" />
+      <button onclick ='eliminarProducto(${item.id})'> Eliminar</button>
+      </li>`         
+    })
+
+    document.getElementById('total').innerHTML = '$' +total
 }
 
 
@@ -114,30 +112,35 @@ else
   button.onclick = function(){
  
   cart.innerHTML = ''
+  
   cart.push({
   quantity: input.value,
   name: name,
   price: price,
   image: image,
-  id:id
-
+  id:id,
+   
 })
+
+// aquí por cada click en el botón "agregar al carrito" recibo los valores de cantidad y id del item clickeado, y la informacion del contenido del carrito 
+
+console.log(input.value)
+console.log(cart)
+console.log(id)
+
 
   renderCart()
   localStorage.setItem('cartShop',JSON.stringify(cart))
 }}}
 
 
+
+
 //función invocada para eliminar elementos del carrito
 function eliminarProducto(id) {
   cart = cart.filter((el) => el.id != id);
+  itemId=id
   localStorage.setItem('cartShop',JSON.stringify(cart))
   renderCart()
 }
 
-
-
-function existe(){
-console.log(cart)
-
-}

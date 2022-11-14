@@ -2,7 +2,7 @@
 
 fetch('items.json')
 .then ((response) => response.json())
-.then ((items=>items.forEach((items,i)=>{
+.then ((items=> items.forEach((items,i)=>{
 
   list.innerHTML += `<li>
 
@@ -13,14 +13,17 @@ fetch('items.json')
       <button>Agregar al carrito</button> 
   </li>`
 }
+
+
+
 )))
 
 //Se declaran variables 
-let cart = []
+
 let list = document.getElementById('lista')
 let ClearCart = document.getElementById('ClearCart')
 let finalizarCompra = document.getElementById('finalizarCompra')
-
+let carrito =[]
 
 
 
@@ -123,14 +126,15 @@ else
    
 })
 renderCart()
-
-
-
-
+console.log(id)
 
 
   localStorage.setItem('cartShop',JSON.stringify(cart))
-}}}
+}
+
+
+
+}}
 
 
 
@@ -143,3 +147,6 @@ function eliminarProducto(id) {
   renderCart()
 }
 
+function id(id){
+  console.log(id)
+}

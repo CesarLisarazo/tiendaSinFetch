@@ -9,8 +9,9 @@ fetch('items.json')
       <div> ${items.name}</div>
       <div>Precio: $${items.price}</div>
       <image src="${items.image}" />
-      <input type="number" onchange='inputChange(${i}, "${items.name}", "${items.price}", "${items.image}", "${items.id}")'/>
-      <button>Agregar al carrito</button> 
+      <input type="number" placeholder="cantidad" onchange='inputChange(${i}, "${items.name}", "${items.price}", "${items.image}", "${items.id}")'/> <br>
+      <button>Agregar al carrito</button> <br>
+      <button onclick ='eliminarProducto(${items.id})'> Eliminar del carrito</button>
   </li>`
   }
 
@@ -87,7 +88,7 @@ function renderCart() {
        <div>Cantidad: ${item.quantity}</div>
        <div>Sub-total: ${item.quantity * item.price}</div>
       <image src="${item.image}" />
-      <button onclick ='eliminarProducto(${item.id})'> Eliminar</button>
+
       </li>`
   })
 
@@ -113,8 +114,8 @@ function inputChange(i, name, price, image, id) {
     })
   }
 
-  const sumarCantidad = (obj) => {
-    obj.quantity++;
+  const alerta = () => {
+    swal(" ", "El item ya está en el carrito ", "warning");
 
 
   }
@@ -128,8 +129,8 @@ function inputChange(i, name, price, image, id) {
   else {
     button.onclick = function () {
       let found = cart.find(element => element.id == id);
-      found ? sumarCantidad(found) : agregarItem()
-
+      found ? alerta(found) : agregarItem()
+   
       renderCart()
 
       //Aqui veo en consola el ID del producto cliqueado y el cart 

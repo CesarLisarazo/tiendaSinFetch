@@ -1,52 +1,160 @@
 
+/* Estilos generales */
 
-body
-{
+body {
     padding: 10px;
-    background-color: rgb(113, 143, 242);
+    background-color: #f0f0f0; /* Cambié el color de fondo */
+    font-family: Arial, sans-serif; /* Cambié la fuente */
 }
 
-section
-{
+section {
     display: flex;
     flex-direction: row;
+    justify-content: space-between; /* Añadí espacio entre las secciones */
+    margin: 20px auto; /* Centrar el contenido */
+    max-width: 1200px; /* Limitar el ancho */
 }
 
-img
-{
-    width:100px;
-}
-li img
-{
-    margin-bottom: 30px;
+ul {
+    list-style: none;
+    padding: 0;
 }
 
-ul button
-{
-    margin-bottom: 30px;
+/* Estilos de la lista de productos */
+
+#lista {
+    width: 45%; /* Reduje el ancho para dar espacio al carrito */
 }
 
-#carrito
-{
-    background-color:rgb(85, 117, 247);
+#lista li {
+    background-color: #fff; /* Fondo blanco */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out; /* Agregué una transición */
 }
 
-#lista,#carrito 
-{
-    width: 50vw;
+#lista li:hover {
+    transform: scale(1.05); /* Efecto de aumento en hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra en hover */
+    cursor: pointer;
 }
 
-#eliminarProducto
-{
-    display:flex;
+/* Estilos del carrito */
+
+#carrito {
+    
+    position: sticky;
+    width: 75%; /* Reduje el ancho para dar espacio a la lista */
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
 }
-.miniatura
-{
-    width:60px;
+
+#carrito li {
+    margin: 10px 0;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+#carrito img {
+    width: 40px; /* Reduje el tamaño de las imágenes en el carrito */
+    margin-right: 10px;
+}
+
+#ClearCart, #finalizarCompra {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#ClearCart:hover, #finalizarCompra:hover {
+    background-color: #0056b3; /* Cambié el color en hover */
+}
+
+/* Estilos para la imagen en la lista de productos */
+
+li img {
+    width: 500px;
+    margin-bottom: 10px;
+    max-width: 100%;
+}
+
+/* Estilos para los botones de cantidad */
+
+.input {
+    display: flex;
+    align-items: center;
+}
+
+input[type="number"] {
+    width: 70px;
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilos para el botón "Agregar al carrito" */
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3; /* Cambié el color en hover */
+}
+
+/* Estilos para el botón "Eliminar orden" */
+
+button[onclick^='eliminarProducto'] {
+    background-color: #f00;
+}
+
+button[onclick^='eliminarProducto']:hover {
+    background-color: #d00;
+}
+
+/* Estilos para el botón "Finalizar compra" */
+
+#finalizarCompra {
+    background-color: #28a745;
+}
+
+#finalizarCompra:hover {
+    background-color: #1e9235;
+}
+
+/* Estilos para el botón "Limpiar carrito" */
+
+#ClearCart {
+    background-color: #dc3545;
+}
+
+#ClearCart:hover {
+    background-color: #c82333;
 }
 
 
+#cartContainer {
+    position: sticky;
+    width: 30%; /* Cambia el ancho del carrito según tus necesidades */
+    max-height: 80vh; /* Establece una altura máxima para el carrito */
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    overflow-y: auto; /* Agrega una barra de desplazamiento vertical cuando sea necesario */
+    top: 80px; /* Ajusta la posición superior según tus necesidades */
+}
 
-.input{
-  display:flex  
+.container{
+    display: flex;
+    
 }
